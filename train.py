@@ -17,10 +17,11 @@ from model import GTANet, GTANetWithMemory
 if IN_COLAB:
     # Используем специальную версию утилит для Colab
     from colab_utils import preprocess_image, save_model, load_model
+    from colab_data_collection import load_from_hdf5
 else:
     # Используем обычную версию
     from utils import preprocess_image, save_model, load_model
-from data_collection import load_from_hdf5
+    from data_collection import load_from_hdf5
 
 # Константы
 BATCH_SIZE = 64
