@@ -10,8 +10,16 @@ import time
 from collections import deque
 import random
 
+# Проверяем, работаем ли в Colab
+IN_COLAB = 'COLAB_GPU' in os.environ
+
 from model import GTANet, GTANetWithMemory
-from utils import preprocess_image, save_model, load_model
+if IN_COLAB:
+    # Используем специальную версию утилит для Colab
+    from colab_utils import preprocess_image, save_model, load_model
+else:
+    # Используем обычную версию
+    from utils import preprocess_image, save_model, load_model
 from data_collection import load_from_hdf5
 
 # Константы
